@@ -1,3 +1,9 @@
+:root {
+    --select-border: #777;
+    --select-focus: blue;
+    --select-arrow: var(--select-border);
+}
+
 * {
     width: 100%;
     height: 100%;
@@ -54,14 +60,49 @@ body {
     padding: 8px;
     width: inherit;
 }
+
+
+
+
+.sliderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
 .sizeSlider {
     display: flex;
     width: 100px;
+    height: 20px;
 }
-.sliderValue{
+.sizeSlider::-webkit-slider-runnable-track {
+    width: 100%;
+    cursor: pointer;
+}
+.sizeSlider::-webkit-slider-thumb {
+    height: 36px;
+}
+.sliderValue {
     display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 24px;
     color: white;
+}
+
+
+
+.toggleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.toggleContainer h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .switch {
     position: relative;
@@ -113,14 +154,55 @@ input:checked + .slider:before {
 
 
 
-.sliderContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.resetButton {
+    background-color: #2196F3;
+    color: white;
+    height: 40px;
+    border-radius: 10px;
+}
+
+
+
+
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+}
+.patternSelector {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    height: 40px;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    display: grid;
+    grid-template-areas: 'patternSelector';
     align-items: center;
 }
-.sliderValue {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.patternSelector::after {
+    content: '';
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0% 0%, 50% 100%);
+    justify-self: end;
+}
+select,
+.patternSelect::after {
+    grid-area: patternSelector;
 }
